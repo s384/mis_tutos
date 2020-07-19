@@ -16,6 +16,7 @@ Basta con ejecutar el siguiente codigo
 ~~~
 chsh -s /usr/bin/fish
 ~~~
+
 Si quieres recuperar tu terminal predeterminada debes ejecutar
 
 ~~~
@@ -43,19 +44,44 @@ omf theme <nombre-theme> /Para activar el theme/
 
 Un alias en una manera de abreviar un comando, veamos el siguiente ejemplo
 
-. ~/Documents/Entornos/laboon/bin/activate.fish
+~~~
+sudo apt update && sudo apt full-upgrade
+~~~
 
 Para abreviarlo debemos ejecutar 
+
 ~~~
 alias nombre_abreviacion='comando a abreviar'
-alias vir_laboon='. ~/Documents/Entornos/laboon/bin/activate.fish'
+alias upgrade='sudo apt update && sudo apt full-upgrade'
 ~~~
+
 Una vez echo esto, grabamos el comando para que al reiniciar la terminal, este siga funcionando, ejecutamos
+
 ~~~
 funcsave nobmre_abreviacion
-funcsave vir_kalem
+funcsave upgrade
 ~~~
-Ahora al reiniciar la terminal solamente ejecutamos vir_laboon
+
+Ahora para ejecutar el comando solo basta tipear upgrade
+
+Tambien podemos darle parametros a los comandos
+
+~~~
+sudo apt update && sudo apt install dexter-icon-theme
+~~~
+
+Ahor debemos agregar el $1 al comando, esto quiere decir que recibira un parametro
+
+~~~
+alias install='sudo apt update && sudo apt install $1'
+funcsave install
+~~~
+
+Entonces al ejecutar el comando solo debemos tipear
+
+~~~
+install dexter-icon-theme
+~~~
 
 ## Shortcut en fish
 
@@ -70,3 +96,36 @@ Ahora al reiniciar la terminal solamente ejecutamos vir_laboon
 - Ctrl+Shift+F: Buscar alguna palabra en la pantalla del terminal.
 - Ctrl+Shift+J: Dividir pantalla del terminal verticalmente.
 - Ctrl+Shift+H: Dividir pantalla del terminal horizontalmente.
+
+
+## Entornos virtuales (python)
+
+Debemos instalar pip de manera global para utilizar virtualfish
+
+~~~
+sudo apt install python3-pip
+pip3 install virtualfish
+~~~
+
+Reiniciamos la terminal
+~~~
+exec fish
+~~~
+
+Procedemos a crear los entornos
+
+~~~
+vf new <nombre-del-entorno>
+~~~
+
+Si es el primer entorno, nos consultara si queremos crear el directorio .virtualenvs, confirmamos y creamos el directorio
+
+### Comandos de vf
+
+~~~
+vf new [<options>] <envname> - Crea un entorno virtual.
+vf ls - Lista los entornos virtuales disponibles.
+vf activate <envname> - Activa el entorno virtual.
+vf deactivate - Desactiva el entorno virutal.
+vf rm <envname> - Elimina el entorno virtual.
+~~~
