@@ -104,7 +104,7 @@ Debemos instalar pip de manera global para utilizar virtualfish
 
 ~~~
 sudo apt install python3-pip
-pip3 install virtualfish
+sudo pip3 install virtualfish
 ~~~
 
 Reiniciamos la terminal
