@@ -129,3 +129,13 @@ vf activate <envname> - Activa el entorno virtual.
 vf deactivate - Desactiva el entorno virutal.
 vf rm <envname> - Elimina el entorno virtual.
 ~~~
+
+## Variables de sistema
+Para agregar una variable debemos conocer la ruta, en este caso usare ~/flutter/bin
+
+~~~
+fish_add_path ~/flutter/bin
+~~~
+
+Disponemos de opciones dentro de este comando como lo son el -g (global) -U (universal)
+para mas informacion revisa la documentacion de fish
