@@ -22,7 +22,16 @@ Si quieres recuperar tu terminal predeterminada debes ejecutar
 ~~~
 chsh /bin/bash
 ~~~
-## Instalando Oh-my-fish (omf)
+
+## Configurando Fish
+
+En la terminal ejecutar, obviamente desde el shell de fish
+
+~~~
+fish_config
+~~~
+
+Nos abrira una pestaña en el navegador para personalizar nuestro shell
 
 Ejecutamos
 
@@ -107,6 +116,13 @@ sudo apt install python3-pip
 sudo pip3 install virtualfish
 ~~~
 
+Si queremos utilizar una version alternativa de python, debemos especificar esta en el comando
+
+~~~
+sudo apt install python3.11-pip
+sudo pip3.11 install virtualfish
+~~~
+
 Reiniciamos la terminal
 ~~~
 exec fish
@@ -118,6 +134,17 @@ Procedemos a crear los entornos
 vf new <nombre-del-entorno>
 ~~~
 
+
+Si queremos utilizar una version alternativa de python, debemos especificar esta en el comando
+
+~~~
+vf new -p /usr/bin/python3 <nombre-del-entorno>
+vf new -p /usr/local/bin/python3.11 <nombre-del-entorno>
+~~~
+
+Verificar si instalo en local o bin, se una instalacion en paralelo con otra version de python 3, queda en usr/local/bin.
+Con esto el entorno ya tiene disponible la version especificada, al estar activado el VF no es necesario especificar la version a utilizar
+
 Si es el primer entorno, nos consultara si queremos crear el directorio .virtualenvs, confirmamos y creamos el directorio
 
 ### Comandos de vf
@@ -128,7 +155,10 @@ vf ls - Lista los entornos virtuales disponibles.
 vf activate <envname> - Activa el entorno virtual.
 vf deactivate - Desactiva el entorno virutal.
 vf rm <envname> - Elimina el entorno virtual.
+vf upgrade [<options>] <envname> - Actualiza el entrono virtual
 ~~~
+
+Para mas informacion sobre las opciones visite la [Documentacion](https://virtualfish.readthedocs.io/en/latest/usage.html)
 
 ## Variables de sistema
 Para agregar una variable debemos conocer la ruta, en este caso usare ~/flutter/bin
@@ -138,4 +168,4 @@ fish_add_path ~/flutter/bin
 ~~~
 
 Disponemos de opciones dentro de este comando como lo son el -g (global) -U (universal)
-para mas informacion revisa la documentacion de fish
+para mas informacion revisa la [Documentacion](https://virtualfish.readthedocs.io/en/latest/usage.html)
