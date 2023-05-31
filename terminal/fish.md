@@ -33,6 +33,8 @@ fish_config
 
 Nos abrira una pestaña en el navegador para personalizar nuestro shell
 
+## Instalando OMF
+
 Ejecutamos
 
 ~~~
